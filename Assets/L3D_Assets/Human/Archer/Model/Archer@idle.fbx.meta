@@ -1,0 +1,316 @@
+fileFormatVersion: 2
+guid: bdaa435aada48604ba6ba593148c12a3
+timeCreated: 1475069559
+licenseType: Store
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Archer
+    100002: //RootNode
+    100004: arrow
+    100006: ArrowBone
+    100008: ArrowRoot
+    100010: Bow
+    100012: BowBone
+    100014: BowRoot
+    100016: Chest
+    100018: Head
+    100020: Hip
+    100022: L_Clavicle
+    100024: L_Foot
+    100026: L_Forearm
+    100028: L_Hand
+    100030: L_Index01
+    100032: L_Index02
+    100034: L_Index03
+    100036: L_Middle01
+    100038: L_Middle02
+    100040: L_Middle03
+    100042: L_Shin
+    100044: L_Shoulder
+    100046: L_Thigh
+    100048: L_Thumb01
+    100050: L_Thumb02
+    100052: L_Thumb03
+    100054: L_Toe
+    100056: LowBone
+    100058: Neck
+    100060: R_Clavicle
+    100062: R_Foot
+    100064: R_Forearm
+    100066: R_Hand
+    100068: R_Index01
+    100070: R_Index02
+    100072: R_Index03
+    100074: R_Middle01
+    100076: R_Middle02
+    100078: R_Middle03
+    100080: R_Shin
+    100082: R_Shoulder
+    100084: R_Thigh
+    100086: R_Thumb01
+    100088: R_Thumb02
+    100090: R_Thumb03
+    100092: R_Toe
+    100094: Root
+    100096: Rope
+    100098: Skeleton
+    100100: Spine
+    100102: upBone
+    400000: Archer
+    400002: //RootNode
+    400004: arrow
+    400006: ArrowBone
+    400008: ArrowRoot
+    400010: Bow
+    400012: BowBone
+    400014: BowRoot
+    400016: Chest
+    400018: Head
+    400020: Hip
+    400022: L_Clavicle
+    400024: L_Foot
+    400026: L_Forearm
+    400028: L_Hand
+    400030: L_Index01
+    400032: L_Index02
+    400034: L_Index03
+    400036: L_Middle01
+    400038: L_Middle02
+    400040: L_Middle03
+    400042: L_Shin
+    400044: L_Shoulder
+    400046: L_Thigh
+    400048: L_Thumb01
+    400050: L_Thumb02
+    400052: L_Thumb03
+    400054: L_Toe
+    400056: LowBone
+    400058: Neck
+    400060: R_Clavicle
+    400062: R_Foot
+    400064: R_Forearm
+    400066: R_Hand
+    400068: R_Index01
+    400070: R_Index02
+    400072: R_Index03
+    400074: R_Middle01
+    400076: R_Middle02
+    400078: R_Middle03
+    400080: R_Shin
+    400082: R_Shoulder
+    400084: R_Thigh
+    400086: R_Thumb01
+    400088: R_Thumb02
+    400090: R_Thumb03
+    400092: R_Toe
+    400094: Root
+    400096: Rope
+    400098: Skeleton
+    400100: Spine
+    400102: upBone
+    2300000: arrow
+    3300000: arrow
+    4300000: Archer
+    4300002: arrow
+    4300004: Bow
+    7400000: idle
+    9500000: //RootNode
+    13700000: Archer
+    13700002: Bow
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: Root
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: idle
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 80
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Archer
+        weight: 0
+      - path: Bow
+        weight: 0
+      - path: Root
+        weight: 1
+      - path: Root/ArrowRoot
+        weight: 0
+      - path: Root/Skeleton
+        weight: 1
+      - path: Root/Skeleton/Hip
+        weight: 1
+      - path: Root/Skeleton/Hip/L_Thigh
+        weight: 1
+      - path: Root/Skeleton/Hip/L_Thigh/L_Shin
+        weight: 1
+      - path: Root/Skeleton/Hip/L_Thigh/L_Shin/L_Foot
+        weight: 1
+      - path: Root/Skeleton/Hip/L_Thigh/L_Shin/L_Foot/L_Toe
+        weight: 1
+      - path: Root/Skeleton/Hip/R_Thigh
+        weight: 1
+      - path: Root/Skeleton/Hip/R_Thigh/R_Shin
+        weight: 1
+      - path: Root/Skeleton/Hip/R_Thigh/R_Shin/R_Foot
+        weight: 1
+      - path: Root/Skeleton/Hip/R_Thigh/R_Shin/R_Foot/R_Toe
+        weight: 1
+      - path: Root/Skeleton/Spine
+        weight: 1
+      - path: Root/Skeleton/Spine/Chest
+        weight: 1
+      - path: Root/Skeleton/Spine/Chest/L_Clavicle
+        weight: 1
+      - path: Root/Skeleton/Spine/Chest/L_Clavicle/L_Shoulder
+        weight: 1
+      - path: Root/Skeleton/Spine/Chest/L_Clavicle/L_Shoulder/L_Forearm
+        weight: 1
+      - path: Root/Skeleton/Spine/Chest/L_Clavicle/L_Shoulder/L_Forearm/L_Hand
+        weight: 1
+      - path: Root/Skeleton/Spine/Chest/L_Clavicle/L_Shoulder/L_Forearm/L_Hand/BowBone
+        weight: 1
+      - path: Root/Skeleton/Spine/Chest/L_Clavicle/L_Shoulder/L_Forearm/L_Hand/BowBone/BowRoot
+        weight: 1
+      - path: Root/Skeleton/Spine/Chest/L_Clavicle/L_Shoulder/L_Forearm/L_Hand/BowBone/BowRoot/LowBone
+        weight: 0
+      - path: Root/Skeleton/Spine/Chest/L_Clavicle/L_Shoulder/L_Forearm/L_Hand/BowBone/BowRoot/Rope
+        weight: 1
+      - path: Root/Skeleton/Spine/Chest/L_Clavicle/L_Shoulder/L_Forearm/L_Hand/BowBone/BowRoot/upBone
+        weight: 0
+      - path: Root/Skeleton/Spine/Chest/L_Clavicle/L_Shoulder/L_Forearm/L_Hand/L_Index01
+        weight: 1
+      - path: Root/Skeleton/Spine/Chest/L_Clavicle/L_Shoulder/L_Forearm/L_Hand/L_Index01/L_Index02
+        weight: 1
+      - path: Root/Skeleton/Spine/Chest/L_Clavicle/L_Shoulder/L_Forearm/L_Hand/L_Index01/L_Index02/L_Index03
+        weight: 1
+      - path: Root/Skeleton/Spine/Chest/L_Clavicle/L_Shoulder/L_Forearm/L_Hand/L_Middle01
+        weight: 1
+      - path: Root/Skeleton/Spine/Chest/L_Clavicle/L_Shoulder/L_Forearm/L_Hand/L_Middle01/L_Middle02
+        weight: 1
+      - path: Root/Skeleton/Spine/Chest/L_Clavicle/L_Shoulder/L_Forearm/L_Hand/L_Middle01/L_Middle02/L_Middle03
+        weight: 1
+      - path: Root/Skeleton/Spine/Chest/L_Clavicle/L_Shoulder/L_Forearm/L_Hand/L_Thumb01
+        weight: 1
+      - path: Root/Skeleton/Spine/Chest/L_Clavicle/L_Shoulder/L_Forearm/L_Hand/L_Thumb01/L_Thumb02
+        weight: 1
+      - path: Root/Skeleton/Spine/Chest/L_Clavicle/L_Shoulder/L_Forearm/L_Hand/L_Thumb01/L_Thumb02/L_Thumb03
+        weight: 1
+      - path: Root/Skeleton/Spine/Chest/Neck
+        weight: 1
+      - path: Root/Skeleton/Spine/Chest/Neck/Head
+        weight: 1
+      - path: Root/Skeleton/Spine/Chest/R_Clavicle
+        weight: 1
+      - path: Root/Skeleton/Spine/Chest/R_Clavicle/R_Shoulder
+        weight: 1
+      - path: Root/Skeleton/Spine/Chest/R_Clavicle/R_Shoulder/R_Forearm
+        weight: 1
+      - path: Root/Skeleton/Spine/Chest/R_Clavicle/R_Shoulder/R_Forearm/R_Hand
+        weight: 1
+      - path: Root/Skeleton/Spine/Chest/R_Clavicle/R_Shoulder/R_Forearm/R_Hand/ArrowBone
+        weight: 0
+      - path: Root/Skeleton/Spine/Chest/R_Clavicle/R_Shoulder/R_Forearm/R_Hand/ArrowBone/arrow
+        weight: 0
+      - path: Root/Skeleton/Spine/Chest/R_Clavicle/R_Shoulder/R_Forearm/R_Hand/R_Index01
+        weight: 1
+      - path: Root/Skeleton/Spine/Chest/R_Clavicle/R_Shoulder/R_Forearm/R_Hand/R_Index01/R_Index02
+        weight: 1
+      - path: Root/Skeleton/Spine/Chest/R_Clavicle/R_Shoulder/R_Forearm/R_Hand/R_Index01/R_Index02/R_Index03
+        weight: 1
+      - path: Root/Skeleton/Spine/Chest/R_Clavicle/R_Shoulder/R_Forearm/R_Hand/R_Middle01
+        weight: 1
+      - path: Root/Skeleton/Spine/Chest/R_Clavicle/R_Shoulder/R_Forearm/R_Hand/R_Middle01/R_Middle02
+        weight: 1
+      - path: Root/Skeleton/Spine/Chest/R_Clavicle/R_Shoulder/R_Forearm/R_Hand/R_Middle01/R_Middle02/R_Middle03
+        weight: 1
+      - path: Root/Skeleton/Spine/Chest/R_Clavicle/R_Shoulder/R_Forearm/R_Hand/R_Thumb01
+        weight: 1
+      - path: Root/Skeleton/Spine/Chest/R_Clavicle/R_Shoulder/R_Forearm/R_Hand/R_Thumb01/R_Thumb02
+        weight: 1
+      - path: Root/Skeleton/Spine/Chest/R_Clavicle/R_Shoulder/R_Forearm/R_Hand/R_Thumb01/R_Thumb02/R_Thumb03
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 10
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: Root
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
