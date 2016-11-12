@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 public class Triggers : MonoBehaviour
 {
     public enum TriggerType { None, OnTriggerEnter, OnTriggerExit, OnTriggerStay };
-    public enum TriggeredEffect { None, PlayAnimation, Collectables, TakeDamage, Died, LoadNextLevel };
+    public enum TriggeredEffect { None, PlayAnimation, Collectables, ToggleObjectOnOff, ToggleComponentOnOff, LoadNextLevel };
 
     [HideInInspector, Header("Choose Trigger Type")]
     public TriggerType type;
@@ -24,6 +24,13 @@ public class Triggers : MonoBehaviour
     [HideInInspector, Tooltip("The name of the Animation Clip you want to play.")]
     public string animationClips;
 
+    //EnableObject
+    [HideInInspector, Tooltip("The Object you want to enable.")]
+    public GameObject objectToEnable;
+    [HideInInspector, Tooltip("True(Checked) = On, False(UnChecked) = Off")]
+    public bool on;
+    [HideInInspector, Tooltip("The Component you want to enable")]
+    public Component componentToEnable;
 
     //Scene Variables
     [HideInInspector, Tooltip("The name of the next scene you want to load.")]
@@ -51,76 +58,91 @@ public class Triggers : MonoBehaviour
     {
         if(onTriggerEnter)
         {
-            //The effect enum goes in here
-            switch (effect)
+            if(other.tag == "Player")
             {
-                case TriggeredEffect.None:
-                    break;
-                case TriggeredEffect.PlayAnimation:
-                    PlayAnimation();
-                    break;
-                case TriggeredEffect.Collectables:
-                    Collectable();
-                    break;
-                case TriggeredEffect.TakeDamage:
-                    break;
-                case TriggeredEffect.Died:
-                    break;
-                case TriggeredEffect.LoadNextLevel:
-                    break;
+                //The effect enum goes in here
+                switch (effect)
+                {
+                    case TriggeredEffect.None:
+                        break;
+                    case TriggeredEffect.PlayAnimation:
+                        PlayAnimation();
+                        break;
+                    case TriggeredEffect.Collectables:
+                        Collectable();
+                        break;
+                    case TriggeredEffect.ToggleObjectOnOff:
+                        ToggleObjectOnOff();
+                        break;
+                    case TriggeredEffect.ToggleComponentOnOff:
+                        ToggleComponentOnOff();
+                        break;
+                    case TriggeredEffect.LoadNextLevel:
+                        break;
+                }
             }
         }
     }
 
     void OnTriggerExit(Collider other)
     {
-        if(onTriggerExit)
+        if (onTriggerExit)
         {
-            //The effect enum goes in here
-            switch (effect)
+            if (other.tag == "Player")
             {
-                case TriggeredEffect.None:
-                    break;
-                case TriggeredEffect.PlayAnimation:
-                    PlayAnimation();
-                    break;
-                case TriggeredEffect.Collectables:
-                    Collectable();
-                    break;
-                case TriggeredEffect.TakeDamage:
-                    break;
-                case TriggeredEffect.Died:
-                    break;
-                case TriggeredEffect.LoadNextLevel:
-                    break;
+                //The effect enum goes in here
+                switch (effect)
+                {
+                    case TriggeredEffect.None:
+                        break;
+                    case TriggeredEffect.PlayAnimation:
+                        PlayAnimation();
+                        break;
+                    case TriggeredEffect.Collectables:
+                        Collectable();
+                        break;
+                    case TriggeredEffect.ToggleObjectOnOff:
+                        ToggleObjectOnOff();
+                        break;
+                    case TriggeredEffect.ToggleComponentOnOff:
+                        ToggleComponentOnOff();
+                        break;
+                    case TriggeredEffect.LoadNextLevel:
+                        break;
+                }
             }
         }
     }
 
     void OnTriggerStay(Collider other)
     {
-        if(onTriggerStay)
+        if (onTriggerStay)
         {
-            //The effect enum goes in here
-            switch (effect)
+            if (other.tag == "Player")
             {
-                case TriggeredEffect.None:
-                    break;
-                case TriggeredEffect.PlayAnimation:
-                    PlayAnimation();
-                    break;
-                case TriggeredEffect.Collectables:
-                    if(other.tag == "Player")
-                    {
-                        Collectable();
-                    }
-                    break;
-                case TriggeredEffect.TakeDamage:
-                    break;
-                case TriggeredEffect.Died:
-                    break;
-                case TriggeredEffect.LoadNextLevel:
-                    break;
+                //The effect enum goes in here
+                switch (effect)
+                {
+                    case TriggeredEffect.None:
+                        break;
+                    case TriggeredEffect.PlayAnimation:
+                        PlayAnimation();
+                        break;
+                    case TriggeredEffect.Collectables:
+                        if (other.tag == "Player")
+                        {
+                            Collectable();
+                        }
+                        break;
+                    case TriggeredEffect.ToggleObjectOnOff:
+                        ToggleObjectOnOff();
+                        break;
+                    case TriggeredEffect.ToggleComponentOnOff:
+                        ToggleComponentOnOff();
+                        break;
+                    case TriggeredEffect.LoadNextLevel:
+                        break;
+                }
             }
         }
     }
@@ -136,14 +158,14 @@ public class Triggers : MonoBehaviour
         Destroy(gameObject);
     }
 
-    void TakeDamage()
+    void ToggleObjectOnOff()
     {
-
+        objectToEnable.SetActive(on);
     }
 
-    void Died()
+    void ToggleComponentOnOff()
     {
-
+        componentToEnable.gameObject.SetActive(on);
     }
 
     void LoadNextLevel()

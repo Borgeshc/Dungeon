@@ -28,6 +28,7 @@ using System.Collections.Generic;
 [RequireComponent(typeof(CharacterController))]
 public class OVRPlayerController : MonoBehaviour
 {
+    public Animator anim;
 	/// <summary>
 	/// The rate acceleration during movement.
 	/// </summary>
@@ -145,6 +146,7 @@ public class OVRPlayerController : MonoBehaviour
 
 	protected virtual void Update()
 	{
+        print(MoveThrottle);
 		if (useProfileData)
 		{
 			if (InitialPose == null)
@@ -227,6 +229,7 @@ public class OVRPlayerController : MonoBehaviour
 		bool moveRight = Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow);
 		bool moveBack = Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow);
 
+      
 		bool dpad_move = false;
 
 		if (OVRInput.Get(OVRInput.Button.DpadUp))
@@ -330,7 +333,34 @@ public class OVRPlayerController : MonoBehaviour
 		euler.y += secondaryAxis.x * rotateInfluence;
 
 		transform.rotation = Quaternion.Euler(euler);
-	}
+        if (Input.GetMouseButton(0) || Input.GetButton("Fire1"))
+        {
+            anim.SetBool("isShooting", true);
+        }
+        if (Input.GetMouseButtonUp(0) || Input.GetButtonUp("Fire1"))
+        {
+            anim.SetBool("isShooting", false);
+        }
+
+        if (moveForward || moveBack || moveRight || moveLeft || primaryAxis.y > 0.0f || primaryAxis.y < 0.0f || primaryAxis.x < 0.0f || primaryAxis.x > 0.0f)
+        {
+            anim.SetBool("isRunning", false);
+            anim.SetBool("isIdle", false);
+            anim.SetBool("isWalking", true);
+        }
+        else if (moveForward || moveBack || moveRight || moveLeft || primaryAxis.y > 0.0f || primaryAxis.y < 0.0f || primaryAxis.x < 0.0f || primaryAxis.x > 0.0f  && Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            anim.SetBool("isIdle", false);
+            anim.SetBool("isWalking", false);
+            anim.SetBool("isRunning", true);
+        }
+        else if (!moveForward && !moveBack && !moveRight && !moveLeft && primaryAxis.y == 0.0f && primaryAxis.y == 0.0f && primaryAxis.x == 0.0f && primaryAxis.x == 0.0f)
+        {
+            anim.SetBool("isRunning", false);
+            anim.SetBool("isWalking", false);
+            anim.SetBool("isIdle", true);
+        }
+    }
 
 	/// <summary>
 	/// Invoked by OVRCameraRig's UpdatedAnchors callback. Allows the Hmd rotation to update the facing direction of the player.

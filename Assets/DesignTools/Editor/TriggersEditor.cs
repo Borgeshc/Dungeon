@@ -12,6 +12,12 @@ public class TriggersEditor : Editor
         animator_Prop,
         animationClip_Prop,
 
+        //ToggleObjectOnOff Properties
+        on_Prop,
+        objectToEnable_Prop,
+
+        //ToggleComponentOnOff Properties
+        componentToEnable_Prop,
         //LoadScene Properties
         nextLevel_Prop;
 
@@ -24,6 +30,13 @@ public class TriggersEditor : Editor
         //PlayAnimation Variables
         animator_Prop = serializedObject.FindProperty("animatorController");
         animationClip_Prop = serializedObject.FindProperty("animationClips");
+
+        //ToggleObjectOnOff Variables
+        on_Prop = serializedObject.FindProperty("on");
+        objectToEnable_Prop = serializedObject.FindProperty("objectToEnable");
+
+        //ToggleComponentOnOff Variables
+        componentToEnable_Prop = serializedObject.FindProperty("componentToEnable");
 
         //LoadScene Variables
         nextLevel_Prop = serializedObject.FindProperty("nextLevel");
@@ -58,9 +71,11 @@ public class TriggersEditor : Editor
                         break;
                     case Triggers.TriggeredEffect.Collectables:
                         break;
-                    case Triggers.TriggeredEffect.TakeDamage:
+                    case Triggers.TriggeredEffect.ToggleObjectOnOff:
+                        ToggleObjectOnOff();
                         break;
-                    case Triggers.TriggeredEffect.Died:
+                    case Triggers.TriggeredEffect.ToggleComponentOnOff:
+                        ToggleComponentOnOff();
                         break;
                     case Triggers.TriggeredEffect.LoadNextLevel:
                         LoadNextLevel();
@@ -81,9 +96,11 @@ public class TriggersEditor : Editor
                         break;
                     case Triggers.TriggeredEffect.Collectables:
                         break;
-                    case Triggers.TriggeredEffect.TakeDamage:
+                    case Triggers.TriggeredEffect.ToggleObjectOnOff:
+                        ToggleObjectOnOff();
                         break;
-                    case Triggers.TriggeredEffect.Died:
+                    case Triggers.TriggeredEffect.ToggleComponentOnOff:
+                        ToggleComponentOnOff();
                         break;
                     case Triggers.TriggeredEffect.LoadNextLevel:
                         LoadNextLevel();
@@ -105,9 +122,11 @@ public class TriggersEditor : Editor
                         break;
                     case Triggers.TriggeredEffect.Collectables:
                         break;
-                    case Triggers.TriggeredEffect.TakeDamage:
+                    case Triggers.TriggeredEffect.ToggleObjectOnOff:
+                        ToggleObjectOnOff();
                         break;
-                    case Triggers.TriggeredEffect.Died:
+                    case Triggers.TriggeredEffect.ToggleComponentOnOff:
+                        ToggleComponentOnOff();
                         break;
                     case Triggers.TriggeredEffect.LoadNextLevel:
                         LoadNextLevel();
@@ -133,13 +152,15 @@ public class TriggersEditor : Editor
 
     }
 
-    void TakeDamage()
+    void ToggleObjectOnOff()
     {
-
+        EditorGUILayout.PropertyField(objectToEnable_Prop, new GUIContent("Object To Toggle"));
+        EditorGUILayout.PropertyField(on_Prop, new GUIContent("Toggle On / Off"));
     }
-    void Died()
+    void ToggleComponentOnOff()
     {
-
+        EditorGUILayout.PropertyField(componentToEnable_Prop, new GUIContent("Component To Toggle"));
+        EditorGUILayout.PropertyField(on_Prop, new GUIContent("Toggle On / Off"));
     }
     void LoadNextLevel()
     {

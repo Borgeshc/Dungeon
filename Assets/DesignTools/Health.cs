@@ -9,6 +9,7 @@ public class Health : MonoBehaviour
     public float health;
     [Tooltip("This is the tag that the projectile needs.")]
     public string projectileTag;
+    public Animator anim;
 
     private float currentHealth;
     public bool test;
@@ -28,6 +29,7 @@ public class Health : MonoBehaviour
     {
         if(other.tag == projectileTag)
         {
+            Destroy(other.gameObject);
             TookDamage();
         }
     }
@@ -51,6 +53,8 @@ public class Health : MonoBehaviour
                 SpawnManager.startNextWave = true;
             }
         }
-        Destroy(gameObject);
+        anim.SetBool("died", true);
+
+        Destroy(gameObject,3);
     }
 }

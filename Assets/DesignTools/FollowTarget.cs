@@ -8,6 +8,10 @@ public class FollowTarget : MonoBehaviour
     [Tooltip("This is how fast the gameobject will follow the target.")]
     public float speed;
 
+    void Start()
+    {
+        target = GameObject.Find("Player");
+    }
     void Update()
     {
         transform.LookAt(target.transform);
