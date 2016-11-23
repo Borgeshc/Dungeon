@@ -10,7 +10,7 @@ public class FollowTarget : MonoBehaviour
 
     void Start()
     {
-        target = GameObject.Find("Player");
+        target = GameObject.FindGameObjectWithTag("Player");
     }
     void Update()
     {

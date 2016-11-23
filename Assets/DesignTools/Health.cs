@@ -14,6 +14,7 @@ public class Health : MonoBehaviour
     private float currentHealth;
     public bool test;
     int chooseDeath;
+    movement pMovement;
     EnemyMovement eMovement;
     KillCount killCounter;
     bool scoreCounted;
@@ -25,6 +26,10 @@ public class Health : MonoBehaviour
         {
             eMovement = GetComponent<EnemyMovement>();
             killCounter = GameObject.Find("GameManager").GetComponent<KillCount>();
+        }
+        else
+        {
+            pMovement = GetComponent<movement>();
         }
     }
     void Update()
@@ -70,6 +75,7 @@ public class Health : MonoBehaviour
         }
         else
         {
+            pMovement.enabled = false;
             chooseDeath = 1;
         }
         anim.SetInteger("Death", chooseDeath);
