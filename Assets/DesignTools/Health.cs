@@ -9,14 +9,23 @@ public class Health : MonoBehaviour
     public float health;
     [Tooltip("This is the tag that the projectile needs.")]
     public string projectileTag;
-    public Animator anim;
+    Animator anim;
 
     private float currentHealth;
     public bool test;
-
+    int chooseDeath;
+    EnemyMovement eMovement;
+    KillCount killCounter;
+    bool scoreCounted;
     void Start()
     {
         currentHealth = health;
+        anim = GetComponent<Animator>();
+        if(transform.tag == "Enemy")
+        {
+            eMovement = GetComponent<EnemyMovement>();
+            killCounter = GameObject.Find("GameManager").GetComponent<KillCount>();
+        }
     }
     void Update()
     {
@@ -29,7 +38,6 @@ public class Health : MonoBehaviour
     {
         if(other.tag == projectileTag)
         {
-            Destroy(other.gameObject);
             TookDamage();
         }
     }
@@ -47,13 +55,24 @@ public class Health : MonoBehaviour
     {
         if(transform.tag == "Enemy")
         {
+            chooseDeath = Random.Range(1, 2);
+            eMovement.enabled = false;
             SpawnManager.activeEnemies--;
-            if(SpawnManager.activeEnemies <= 0)
+            if (transform.tag == "Enemy" && !scoreCounted)
+            {
+                scoreCounted = true;
+                killCounter.UpdateScore();
+            }
+            if (SpawnManager.activeEnemies <= 0)
             {
                 SpawnManager.startNextWave = true;
             }
         }
-        anim.SetBool("died", true);
+        else
+        {
+            chooseDeath = 1;
+        }
+        anim.SetInteger("Death", chooseDeath);
 
         Destroy(gameObject,3);
     }

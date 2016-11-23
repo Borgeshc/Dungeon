@@ -88,7 +88,7 @@ public class SpawnManager : MonoBehaviour
         {
             for (int i = 0; i < enemiesPerWave; i++)
             {
-                GameObject clone = Instantiate(enemies[Random.Range(0, enemies.Length)], spawnPoints[Random.Range(0,enemies.Length)].transform.position, Quaternion.identity) as GameObject;
+                GameObject clone = Instantiate(enemies[Random.Range(0, enemies.Length)], spawnPoints[Random.Range(0, spawnPoints.Length)].transform.position, Quaternion.identity) as GameObject;
                 activeEnemies++;
             }
             currentWave++;
@@ -102,7 +102,7 @@ public class SpawnManager : MonoBehaviour
     {
         for(int i = 0; i < totalEnemies; i++)
         {
-            Instantiate(enemies[Random.Range(0, enemies.Length)], spawnPoints[Random.Range(0,enemies.Length)].transform.position, Quaternion.identity);
+            Instantiate(enemies[Random.Range(0, enemies.Length)], spawnPoints[Random.Range(0, spawnPoints.Length)].transform.position, Quaternion.identity);
         }
         canSpawn = false;
     }
@@ -111,7 +111,7 @@ public class SpawnManager : MonoBehaviour
     {
         for (int i = 0; i < enemiesPerEachWave; i++)
         {
-            GameObject clone = Instantiate(enemies[Random.Range(0, enemies.Length)], spawnPoints[Random.Range(0, enemies.Length)].transform.position, Quaternion.identity) as GameObject;
+            GameObject clone = Instantiate(enemies[Random.Range(0, enemies.Length)], spawnPoints[Random.Range(0, spawnPoints.Length)].transform.position, Quaternion.identity) as GameObject;
         }
     }
 }
