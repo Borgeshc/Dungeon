@@ -85,7 +85,13 @@ public class Health : MonoBehaviour
 
             anim.SetInteger("Death", chooseDeath);
             Destroy(gameObject, 3);
-            SceneManager.LoadScene("Game");
+            StartCoroutine(WaitForSceneLoad());
         }
+    }
+
+    IEnumerator WaitForSceneLoad()
+    {
+        yield return new WaitForSeconds(5);
+        SceneManager.LoadScene("MainMenu");
     }
 }
