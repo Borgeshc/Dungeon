@@ -84,7 +84,7 @@ public class LocomotionPlayer : MonoBehaviour {
 
                         StartCoroutine(WaitToChangeBool(1));
                     }
-                    if (Input.GetButtonDown("Fire2"))
+                    if (Input.GetButtonDown("Fire3"))
                     {
                         locomotion.Attack(2);
 
@@ -98,7 +98,7 @@ public class LocomotionPlayer : MonoBehaviour {
 
                         StartCoroutine(WaitToChangeBool(2));
                     }
-                    if (Input.GetButtonDown("Fire3"))
+                    if (Input.GetButtonDown("Fire2"))
                     {
                         locomotion.Attack(3);
 

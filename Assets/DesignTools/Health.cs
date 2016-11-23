@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class Health : MonoBehaviour
 {
@@ -72,14 +73,19 @@ public class Health : MonoBehaviour
             {
                 SpawnManager.startNextWave = true;
             }
+
+            anim.SetInteger("Death", chooseDeath);
+            Destroy(gameObject, 3);
         }
         else
         {
             pMovement.enabled = false;
-            chooseDeath = 1;
-        }
-        anim.SetInteger("Death", chooseDeath);
 
-        Destroy(gameObject,3);
+            chooseDeath = 1;
+
+            anim.SetInteger("Death", chooseDeath);
+            Destroy(gameObject, 3);
+            SceneManager.LoadScene("Game");
+        }
     }
 }
