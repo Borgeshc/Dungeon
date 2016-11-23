@@ -1,5 +1,8 @@
 ﻿// Upgrade NOTE: replaced '_Object2World' with 'unity_ObjectToWorld'
 
+// Upgrade NOTE: replaced '_Object2World' with 'unity_ObjectToWorld'
+// Upgrade NOTE: replaced '_World2Object' with 'unity_WorldToObject'\
+
 Shader "LowpolySubstances/Water" {
 
 Properties {
@@ -71,8 +74,11 @@ Category {
 			v2f vert(appdata vertex) {
 			    v2f output;
 
-                vertex.position.y += sin((_Time.y * _Speed + vertex.position.x * sin(_Direction) + vertex.position.z * cos(_Direction)) / _WaveLength) * 
-                        _Intensity * 0.05 * sin(1.57 + _SquareWaves * (vertex.position.x * sin(_Direction + 1.57) + vertex.position.z * cos(_Direction + 1.57) / _WaveLength));
+                vertex.position.y += sin((_Time.y * _Speed + vertex.position.x * sin(_Direction) + 
+										  vertex.position.z * cos(_Direction)) / _WaveLength) * 
+                        			 _Intensity * 0.05 * sin(1.57 + _SquareWaves * 
+									 (vertex.position.x * sin(_Direction + 1.57) + 
+									 vertex.position.z * cos(_Direction + 1.57) / _WaveLength));
                 
 			    half3 worldPosition = mul(unity_ObjectToWorld, vertex.position).xyz;
 			    half3 cameraVector = normalize(worldPosition.xyz - _WorldSpaceCameraPos);
