@@ -4,7 +4,7 @@ using System.Collections;
 public class EnemyMovement : MonoBehaviour
 {
     public float speed;
-    public int attackRange;
+    public float attackRange;
 
     GameObject player;
     int attackType;
@@ -18,32 +18,37 @@ public class EnemyMovement : MonoBehaviour
 	
 	void Update ()
     {
-        transform.LookAt(player.transform);
-        transform.Translate(Vector3.forward * speed * Time.deltaTime);
-        if(Vector3.Distance(transform.position, player.transform.position) < attackRange)
+        if(player != null)
         {
-            attackType = Random.Range(0, 2);
-            switch (attackType)
+            if (Vector3.Distance(transform.position, player.transform.position) < attackRange)
             {
-                case 0:
-                    anim.SetBool("Attack1", true);
-                    StartCoroutine(WaitForBoolChange(0));
-                    break;
-                case 1:
-                    anim.SetBool("Attack2", true);
-                    StartCoroutine(WaitForBoolChange(1));
-                    break;
-                case 2:
-                    anim.SetBool("Attack3", true);
-                    StartCoroutine(WaitForBoolChange(2));
-                    break;
+                attackType = Random.Range(0, 2);
+                switch (attackType)
+                {
+                    case 0:
+                        anim.SetBool("Attack1", true);
+                        StartCoroutine(WaitForBoolChange(0));
+                        break;
+                    case 1:
+                        anim.SetBool("Attack2", true);
+                        StartCoroutine(WaitForBoolChange(1));
+                        break;
+                    case 2:
+                        anim.SetBool("Attack3", true);
+                        StartCoroutine(WaitForBoolChange(2));
+                        break;
+                }
             }
-        }
-        else
-        {
-            anim.SetBool("Attack1", false);
-            anim.SetBool("Attack2", false);
-            anim.SetBool("Attack3", false);
+            else
+            {
+                transform.LookAt(player.transform);
+                transform.Translate(Vector3.forward * speed * Time.deltaTime);
+
+                anim.SetBool("Attack1", false);
+                anim.SetBool("Attack2", false);
+                anim.SetBool("Attack3", false);
+            }
+
         }
 	}
 

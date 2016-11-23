@@ -20,12 +20,14 @@ public class LocomotionPlayer : MonoBehaviour {
     private bool doneWaiting;
 
     Rigidbody rb;
+    public BoxCollider meleeWeapon;
 
 	void Start () 
 	{
         animator = GetComponent<Animator>();
         locomotion = new Locomotion(animator);
         rb = GetComponent<Rigidbody>();
+        meleeWeapon.enabled = false;
 	}
     
 	void Update () 
@@ -63,8 +65,11 @@ public class LocomotionPlayer : MonoBehaviour {
 
     IEnumerator WaitToChangeBool(int attackType)
     {
+
+        meleeWeapon.enabled = true;
         yield return new WaitForSeconds(1f);
         locomotion.StopAttack(attackType);
+        meleeWeapon.enabled = false;
     }
 
 }
