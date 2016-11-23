@@ -12,10 +12,12 @@ public class movement : MonoBehaviour
     Rigidbody rb;
 
     public static bool canMove;
+    public static bool canRotate;
 
     void Start()
     {
         canMove = true;
+        canRotate = true;
         rb = GetComponent<Rigidbody>();
     }
 
@@ -29,8 +31,11 @@ public class movement : MonoBehaviour
 
         if (targetDirection != Vector3.zero)
         {
-            targetRotation = Quaternion.LookRotation(targetDirection, Vector3.up);
-            transform.rotation = targetRotation;
+            if(canRotate)
+            {
+                targetRotation = Quaternion.LookRotation(targetDirection, Vector3.up);
+                transform.rotation = targetRotation;
+            }
         }
 
         if (horizontal != 0 || vertical != 0)

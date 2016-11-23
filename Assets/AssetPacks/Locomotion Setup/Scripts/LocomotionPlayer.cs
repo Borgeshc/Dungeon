@@ -23,6 +23,9 @@ public class LocomotionPlayer : MonoBehaviour {
     public BoxCollider meleeWeapon;
     public GameObject gunBarrel;
     public GameObject aimShadow;
+    public GameObject ability1;
+    public GameObject ability2;
+    public GameObject ability3;
     bool isUsingBow;
     bool canShoot;
 
@@ -72,16 +75,40 @@ public class LocomotionPlayer : MonoBehaviour {
                     {
                         locomotion.Attack(1);
 
+                        if (ability1 != null)
+                        {
+                            StartCoroutine(WaitToUseAbility(0f, ability1));
+
+                            StartCoroutine(AbilityLifeTime(2f, ability1));
+                        }
+
                         StartCoroutine(WaitToChangeBool(1));
                     }
                     if (Input.GetButtonDown("Fire2"))
                     {
                         locomotion.Attack(2);
+
+                        if (ability2 != null)
+                        {
+                            StartCoroutine(WaitToUseAbility(1f, ability2));
+                            movement.canRotate = false;
+                            movement.canMove = false;
+                            StartCoroutine(AbilityLifeTime(2f, ability2));
+                        }
+
                         StartCoroutine(WaitToChangeBool(2));
                     }
                     if (Input.GetButtonDown("Fire3"))
                     {
                         locomotion.Attack(3);
+
+                        if (ability3 != null)
+                        {
+                            StartCoroutine(WaitToUseAbility(.8f, ability3));
+
+                            StartCoroutine(AbilityLifeTime(1f, ability3));
+                        }
+
                         StartCoroutine(WaitToChangeBool(3));
                     }
 
@@ -136,6 +163,20 @@ public class LocomotionPlayer : MonoBehaviour {
         aimShadow.SetActive(false);
         yield return new WaitForSeconds(.8f);
         canShoot = true;
+    }
+
+    IEnumerator  WaitToUseAbility(float waitTime, GameObject ability)
+    {
+        yield return new WaitForSeconds(waitTime);
+        ability.SetActive(true);
+    }
+
+    IEnumerator AbilityLifeTime(float lifeTime, GameObject usedAbility)
+    {
+        yield return new WaitForSeconds(lifeTime);
+        usedAbility.SetActive(false);
+        movement.canMove = true;
+        movement.canRotate = true;
     }
 
 }
