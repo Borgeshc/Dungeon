@@ -6,6 +6,7 @@ public class ClassChosen : MonoBehaviour
     public GameObject warriorClass;
     public GameObject berserkerClass;
     public GameObject archerClass;
+    public GameObject mageClass;
 
     public GameObject playerSpawnpoint;
 
@@ -21,6 +22,9 @@ public class ClassChosen : MonoBehaviour
                 break;
             case 3:
                 Instantiate(archerClass, playerSpawnpoint.transform.position, playerSpawnpoint.transform.rotation);
+                break;
+            case 4:
+                Instantiate(mageClass, playerSpawnpoint.transform.position, playerSpawnpoint.transform.rotation);
                 break;
         }
 	}

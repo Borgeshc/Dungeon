@@ -23,4 +23,10 @@ public class ChooseClass : MonoBehaviour
         classChosen = 3;
         SceneManager.LoadScene("Game");
     }
+
+    public void Mage()
+    {
+        classChosen = 4;
+        SceneManager.LoadScene("Game");
+    }
 }

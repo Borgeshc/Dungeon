@@ -13,12 +13,12 @@ public class Health : MonoBehaviour
     Animator anim;
 
     private float currentHealth;
-    public bool test;
     int chooseDeath;
     movement pMovement;
     EnemyMovement eMovement;
     KillCount killCounter;
     bool scoreCounted;
+    bool beingDamaged;
     void Start()
     {
         currentHealth = health;
@@ -35,22 +35,59 @@ public class Health : MonoBehaviour
     }
     void Update()
     {
-        if(test)
-        {
-            WasDestroyed();
-        }
     }
     void OnTriggerEnter(Collider other)
     {
-        if(other.tag == projectileTag)
-        {
-            TookDamage();
-        }
+        TookDamage(other.gameObject);
     }
 
-    public void TookDamage()
+    public void TookDamage(GameObject projectile)
     {
-        currentHealth--;
+        if (!beingDamaged)
+        {
+            beingDamaged = true;
+                switch (projectile.tag)
+                {
+                    case "EnemyWeapon":
+                        if(transform.tag == "Player")
+                        {
+                            currentHealth--;
+                        }
+                        break;
+                    case "Sword":
+                    if (transform.tag == "Enemy")
+                    {
+                        currentHealth -= 2.5f;
+                    }
+                        break;
+                    case "Axe":
+                    if (transform.tag == "Enemy")
+                    {
+                        currentHealth -= 5;
+                    }
+                        break;
+                    case "Arrow":
+                    if (transform.tag == "Enemy")
+                    {
+                        currentHealth -= 3.5f;
+                    }
+                        break;
+                    case "Fireball":
+                    if (transform.tag == "Enemy")
+                    {
+                        currentHealth -= 5;
+                    }
+                        break;
+                    case "Meteors":
+                    if (transform.tag == "Enemy")
+                    {
+                        currentHealth -= 3;
+                    }
+                        break;
+                }
+            
+            beingDamaged = false;
+        }
         if(currentHealth <= 0)
         {
             WasDestroyed();
@@ -84,14 +121,8 @@ public class Health : MonoBehaviour
             chooseDeath = 1;
 
             anim.SetInteger("Death", chooseDeath);
-            Destroy(gameObject, 3);
-            StartCoroutine(WaitForSceneLoad());
-        }
-    }
 
-    IEnumerator WaitForSceneLoad()
-    {
-        yield return new WaitForSeconds(5);
-        SceneManager.LoadScene("MainMenu");
+            SceneManager.LoadScene("MainMenu");
+        }
     }
 }

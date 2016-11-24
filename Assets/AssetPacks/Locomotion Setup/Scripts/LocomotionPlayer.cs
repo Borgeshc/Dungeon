@@ -26,8 +26,11 @@ public class LocomotionPlayer : MonoBehaviour {
     public GameObject ability1;
     public GameObject ability2;
     public GameObject ability3;
+
+    public int abilityLifetime;
     bool isUsingBow;
     bool canShoot;
+    bool isCaster;
 
 	void Start () 
 	{
@@ -79,7 +82,7 @@ public class LocomotionPlayer : MonoBehaviour {
                         {
                             StartCoroutine(WaitToUseAbility(0f, ability1));
 
-                            StartCoroutine(AbilityLifeTime(2f, ability1));
+                            StartCoroutine(AbilityLifeTime(abilityLifetime, ability1));
                         }
 
                         StartCoroutine(WaitToChangeBool(1));
@@ -90,10 +93,10 @@ public class LocomotionPlayer : MonoBehaviour {
 
                         if (ability2 != null)
                         {
-                            StartCoroutine(WaitToUseAbility(1f, ability2));
+                            StartCoroutine(WaitToUseAbility(0f, ability2));
                             movement.canRotate = false;
                             movement.canMove = false;
-                            StartCoroutine(AbilityLifeTime(2f, ability2));
+                            StartCoroutine(AbilityLifeTime(abilityLifetime, ability2));
                         }
 
                         StartCoroutine(WaitToChangeBool(2));
@@ -106,7 +109,7 @@ public class LocomotionPlayer : MonoBehaviour {
                         {
                             StartCoroutine(WaitToUseAbility(.8f, ability3));
 
-                            StartCoroutine(AbilityLifeTime(1f, ability3));
+                            StartCoroutine(AbilityLifeTime(abilityLifetime, ability3));
                         }
 
                         StartCoroutine(WaitToChangeBool(3));
