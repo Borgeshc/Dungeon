@@ -84,7 +84,13 @@ public class Health : MonoBehaviour
                         currentHealth -= 3;
                     }
                         break;
-                }
+                case "Rune":
+                    if (transform.tag == "Enemy")
+                    {
+                        currentHealth -= 10;
+                    }
+                    break;
+            }
             
             beingDamaged = false;
         }
