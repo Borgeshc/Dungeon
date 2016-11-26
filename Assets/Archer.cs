@@ -6,7 +6,7 @@ using System.Collections;
 
 //Name of class must be name of file as well
 
-public class Berserker : MonoBehaviour
+public class Archer : MonoBehaviour
 {
 
     protected Animator animator;
@@ -17,6 +17,8 @@ public class Berserker : MonoBehaviour
     private bool doneWaiting;
 
     Rigidbody rb;
+    public GameObject gunBarrel;
+    public GameObject aimShadow;
     public GameObject ability1;
     public GameObject ability2;
     public GameObject ability3;
@@ -48,6 +50,7 @@ public class Berserker : MonoBehaviour
         locomotion = new Locomotion(animator);
         rb = GetComponent<Rigidbody>();
         canShoot = true;
+
         canCastAbility1 = true;
         canCastAbility2 = true;
         canCastAbility3 = true;
@@ -61,19 +64,21 @@ public class Berserker : MonoBehaviour
             {
                 JoystickToEvents.Do(transform, Camera.main.transform, ref speed, ref direction);
                 locomotion.Do(speed * 6, direction * 180);
-                
-                if (Input.GetButtonDown("Fire1") && canCastAbility1)
+
+                if (Input.GetButtonDown("Fire1"))
                 {
-                    if(ability1 != null)
-                    {
-                        locomotion.Attack(1);
+                    movement.canMove = false;
+                    aimShadow.SetActive(true);
+                }
+                if (Input.GetButtonUp("Fire1") && canCastAbility1)
+                {
+                    canShoot = false;
+                    locomotion.Attack(1);
 
-                        StartCoroutine(WaitToUseAbility(ability1WaitTime, ability1));
-                        StartCoroutine(AbilityLifeTime(abilityLifetime1, ability1));
-                        StartCoroutine(AbilityCooldown(ability1Cooldown, 1));
-                    }
-
+                    StartCoroutine(WaitToUseAbility(ability1WaitTime, ability1));
                     StartCoroutine(CancelAnim(1, cancelAnimAt1));
+                  //  StartCoroutine(ShootArrow());
+                    StartCoroutine(AbilityCooldown(ability1Cooldown, 1));
                 }
 
                 if (Input.GetButtonDown("Fire2") && canCastAbility3)
@@ -85,27 +90,28 @@ public class Berserker : MonoBehaviour
                         StartCoroutine(WaitToUseAbility(ability3WaitTime, ability3));
                         movement.canMove = false;
                         StartCoroutine(AbilityLifeTime(abilityLifetime3, ability3));
-                        StartCoroutine(AbilityCooldown(ability3Cooldown, 3));
+                        StartCoroutine(AbilityCooldown(ability1Cooldown, 3));
                     }
 
                     StartCoroutine(CancelAnim(3, cancelAnimAt3));
                 }
 
-                if (Input.GetButtonDown("Fire3") && canCastAbility2)
+                if (Input.GetButtonDown("Fire3"))
                 {
-                    locomotion.Attack(2);
-
-                    if (ability2 != null)
-                    {
-                        StartCoroutine(WaitToUseAbility(ability2WaitTime, ability2));
-                        movement.canRotate = false;
-                        movement.canMove = false;
-                        StartCoroutine(AbilityLifeTime(abilityLifetime2, ability2));
-                        StartCoroutine(AbilityCooldown(ability2Cooldown, 2));
-                    }
-
-                    StartCoroutine(CancelAnim(2, cancelAnimAt2));
+                    movement.canMove = false;
+                    aimShadow.SetActive(true);
                 }
+                if (Input.GetButtonUp("Fire3") && canCastAbility2)
+                {
+                    canShoot = false;
+                    locomotion.Attack(1);
+
+                    StartCoroutine(WaitToUseAbility(ability2WaitTime, ability2));
+                    StartCoroutine(CancelAnim(1, cancelAnimAt1));
+                    //StartCoroutine(ShootArrow());
+                    StartCoroutine(AbilityCooldown(ability1Cooldown, 2));
+                }
+
             }
         }
     }
@@ -117,6 +123,14 @@ public class Berserker : MonoBehaviour
         yield return new WaitForSeconds(cancelAnimAt);
         locomotion.StopAttack(attackType);
     }
+
+    //IEnumerator ShootArrow()                                    //waits for animations before shooting
+    //{
+    //    yield return new WaitForSeconds(ability1WaitTime);
+    //    gunBarrel.SetActive(true);
+    //    yield return new WaitForSeconds(.8f);
+    //    canShoot = true;
+    //}
     IEnumerator AbilityCooldown(float cooldown, int abilityToCooldown)
     {
         switch (abilityToCooldown)
@@ -145,17 +159,17 @@ public class Berserker : MonoBehaviour
     {
         yield return new WaitForSeconds(waitTime);
             ability.SetActive(true);
+
+        movement.canMove = true;
+        aimShadow.SetActive(false);
     }
 
     IEnumerator AbilityLifeTime(float lifeTime, GameObject usedAbility) //shuts off ability after time
     {
         yield return new WaitForSeconds(lifeTime);
         usedAbility.SetActive(false);
-
         movement.canMove = true;
         movement.canRotate = true;
     }
-
 }
-
 
