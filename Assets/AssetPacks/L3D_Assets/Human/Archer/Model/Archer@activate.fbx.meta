@@ -1,0 +1,184 @@
+fileFormatVersion: 2
+guid: 18303ba6f7a07a34d83765bae7134681
+timeCreated: 1475247040
+licenseType: Store
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: ArrowBone
+    100004: BowBone
+    100006: BowRoot
+    100008: Chest
+    100010: Head
+    100012: Hip
+    100014: L_Clavicle
+    100016: L_Foot
+    100018: L_Forearm
+    100020: L_Hand
+    100022: L_Index01
+    100024: L_Index02
+    100026: L_Index03
+    100028: L_Middle01
+    100030: L_Middle02
+    100032: L_Middle03
+    100034: L_Shin
+    100036: L_Shoulder
+    100038: L_Thigh
+    100040: L_Thumb01
+    100042: L_Thumb02
+    100044: L_Thumb03
+    100046: L_Toe
+    100048: LowBone
+    100050: Neck
+    100052: R_Clavicle
+    100054: R_Foot
+    100056: R_Forearm
+    100058: R_Hand
+    100060: R_Index01
+    100062: R_Index02
+    100064: R_Index03
+    100066: R_Middle01
+    100068: R_Middle02
+    100070: R_Middle03
+    100072: R_Shin
+    100074: R_Shoulder
+    100076: R_Thigh
+    100078: R_Thumb01
+    100080: R_Thumb02
+    100082: R_Thumb03
+    100084: R_Toe
+    100086: Rope
+    100088: Skeleton
+    100090: Spine
+    100092: upBone
+    100094: Archer
+    100096: arrow
+    100098: ArrowRoot
+    100100: Bow
+    100102: Root
+    400000: //RootNode
+    400002: ArrowBone
+    400004: BowBone
+    400006: BowRoot
+    400008: Chest
+    400010: Head
+    400012: Hip
+    400014: L_Clavicle
+    400016: L_Foot
+    400018: L_Forearm
+    400020: L_Hand
+    400022: L_Index01
+    400024: L_Index02
+    400026: L_Index03
+    400028: L_Middle01
+    400030: L_Middle02
+    400032: L_Middle03
+    400034: L_Shin
+    400036: L_Shoulder
+    400038: L_Thigh
+    400040: L_Thumb01
+    400042: L_Thumb02
+    400044: L_Thumb03
+    400046: L_Toe
+    400048: LowBone
+    400050: Neck
+    400052: R_Clavicle
+    400054: R_Foot
+    400056: R_Forearm
+    400058: R_Hand
+    400060: R_Index01
+    400062: R_Index02
+    400064: R_Index03
+    400066: R_Middle01
+    400068: R_Middle02
+    400070: R_Middle03
+    400072: R_Shin
+    400074: R_Shoulder
+    400076: R_Thigh
+    400078: R_Thumb01
+    400080: R_Thumb02
+    400082: R_Thumb03
+    400084: R_Toe
+    400086: Rope
+    400088: Skeleton
+    400090: Spine
+    400092: upBone
+    400094: Archer
+    400096: arrow
+    400098: ArrowRoot
+    400100: Bow
+    400102: Root
+    2300000: arrow
+    3300000: arrow
+    4300000: Archer
+    4300002: arrow
+    4300004: Bow
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: Archer
+    13700002: Bow
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 10
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: Root
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
