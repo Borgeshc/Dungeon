@@ -82,6 +82,7 @@ public class Berserker : MonoBehaviour
 
                     if (ability3 != null)
                     {
+                        locomotion.Attack(3);
                         StartCoroutine(WaitToUseAbility(ability3WaitTime, ability3));
                         movement.canMove = false;
                         StartCoroutine(AbilityLifeTime(abilityLifetime3, ability3));
