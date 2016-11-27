@@ -85,6 +85,7 @@ public class Warrior : MonoBehaviour
 
                     if (ability3 != null)
                     {
+
                         StartCoroutine(WaitToUseAbility(ability3WaitTime, ability3));
                         StartCoroutine(AbilityLifeTime(abilityLifetime3, ability3));
                         StartCoroutine(AbilityCooldown(ability3Cooldown, 3));
