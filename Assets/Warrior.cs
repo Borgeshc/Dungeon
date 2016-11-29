@@ -55,9 +55,8 @@ public class Warrior : MonoBehaviour
 
     void Update()
     {
-        print(canCastAbility1 + "ability 1");
-        print(canCastAbility2 + "ability 2");
-        print(canCastAbility3 + "ability 3");
+        //print(canCastAbility2 + "ability 2");
+        //print(canCastAbility3 + "ability 3");
         if (animator && Camera.main)
         {
             if (transform.tag == "Player")
