@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using InControl;
 
 public class movement : MonoBehaviour
 {
@@ -9,10 +10,13 @@ public class movement : MonoBehaviour
     Quaternion targetRotation;
     float horizontal;
     float vertical;
+    float horizontal2;
+    float vertical2;
     Rigidbody rb;
 
     public static bool canMove;
     public static bool canRotate;
+
 
     void Start()
     {
@@ -23,11 +27,20 @@ public class movement : MonoBehaviour
 
 	void Update ()
     {
-        horizontal = Input.GetAxis("Horizontal");
-        vertical = Input.GetAxis("Vertical");
+        var inputDevice = InputManager.ActiveDevice;
 
-        
-        targetDirection = new Vector3(horizontal, 0f, vertical);
+        horizontal = inputDevice.LeftStickX;
+        vertical = inputDevice.LeftStickY;
+
+        horizontal2 = inputDevice.RightStickX;
+        vertical2 = inputDevice.RightStickY;
+
+        print("LeftStickX " + horizontal);
+        print("LeftStickY " + vertical);
+
+        print("RightStickX " + horizontal2);
+        print("RightStickY " + vertical2);
+        targetDirection = new Vector3(0f, horizontal2, vertical);
 
         if (targetDirection != Vector3.zero)
         {
